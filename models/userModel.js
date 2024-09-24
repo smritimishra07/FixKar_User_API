@@ -19,9 +19,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-//   profilePhoto: {
-//     type: String, 
-//   },
+  gender: {
+    type: String,
+    enum: ['male', 'female', 'other'],
+    required: true,
+  },
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

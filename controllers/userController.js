@@ -36,14 +36,14 @@ const getUserById = async (req, res) => {
 // };
 
 const createUser = async (req, res) => {
-    const { name, phone, email, location } = req.body;
+    const { name, phone, email, location, gender } = req.body;
   
-    if (!name || !phone || !email || !location) {
+    if (!name || !phone || !email || !location || !gender) {
       return res.status(400).json({ message: 'All fields are required' });
     }
   
     try {
-      const newUser = new User({ name, phone, email, location });
+      const newUser = new User({ name, phone, email, location, gender });
       const savedUser = await newUser.save();
       res.status(201).json(savedUser);
     } catch (err) {
